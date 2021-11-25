@@ -1,0 +1,24 @@
+---
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: micro-server
+  labels:
+    app: micro-server
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: micro-server
+  template:
+    metadata:
+      labels:
+        app: micro-server
+    spec:
+      containers:
+      - name: micro-server
+        image: micro-server:latest
+        envFrom:
+        - configMapRef:
+            name: micro-server-env

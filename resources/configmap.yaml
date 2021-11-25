@@ -1,0 +1,9 @@
+---
+
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: micro-server-env
+data:
+  MICRO_REGISTRY: kubernetes
+#  MICRO_SERVER: grpc
