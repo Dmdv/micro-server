@@ -1,7 +1,6 @@
 package main
 
 import (
-	"fmt"
 	"io"
 	"micro-server/handler"
 	pb "micro-server/proto"
@@ -16,12 +15,12 @@ import (
 )
 
 var (
-	service = "micro"
+	service = "micro-server"
 	version = "latest"
 )
 
 func main() {
-	fmt.Println("Starting " + service)
+	log.Info("Starting " + service)
 
 	// Create tracer
 	tracer, closer, err := jaeger.NewTracer(
