@@ -10,18 +10,16 @@ import (
 	log "go-micro.dev/v4/logger"
 
 	"go-micro.dev/v4/cmd/micro/debug/trace/jaeger"
-
-	"github.com/asim/go-micro/plugins/server/grpc/v4"
+	// To explicitly declare gRPC transport
+	//"github.com/asim/go-micro/plugins/server/grpc/v4"
+	// micro.Server(grpc.NewServer()),
 )
 
 var (
 	service = "micro-server"
-	version = "latest"
 )
 
 func main() {
-	log.Info("Starting " + service)
-
 	// Create tracer
 	tracer, closer, err := jaeger.NewTracer(
 		jaeger.Name(service),
@@ -37,10 +35,10 @@ func main() {
 	}(closer)
 
 	// Create service
+	// micro.Version(version) - set version
+	// micro.Name(service) - set service name
+	// micro.Server(grpc.NewServer()), // must come before any other options
 	srv := micro.NewService(
-		micro.Name(service),
-		micro.Version(version),
-		micro.Server(grpc.NewServer()),
 		micro.WrapCall(ot.NewCallWrapper(tracer)),
 		micro.WrapClient(ot.NewClientWrapper(tracer)),
 		micro.WrapHandler(ot.NewHandlerWrapper(tracer)),
@@ -49,7 +47,7 @@ func main() {
 	srv.Init()
 
 	// Register handler
-	pb.RegisterTransactionPersistenceHandler(srv.Server(), new(handler.TransactionPersistence))
+	_ = pb.RegisterTransactionPersistenceHandler(srv.Server(), new(handler.TransactionPersistence))
 
 	// Run service
 	if err := srv.Run(); err != nil {

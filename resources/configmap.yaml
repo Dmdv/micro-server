@@ -5,5 +5,7 @@ kind: ConfigMap
 metadata:
   name: micro-server-env
 data:
+  MICRO_SERVER: grpc
   MICRO_REGISTRY: kubernetes
-#  MICRO_SERVER: grpc
+  MICRO_SERVER_NAME: micro-server
+  MICRO_SERVER_VERSION: latest
