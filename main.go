@@ -35,9 +35,9 @@ func main() {
 	}(closer)
 
 	// Create service
+	// micro.Server(grpc.NewServer()), // must come before any other options
 	// micro.Version(version) - set version
 	// micro.Name(service) - set service name
-	// micro.Server(grpc.NewServer()), // must come before any other options
 	srv := micro.NewService(
 		micro.WrapCall(ot.NewCallWrapper(tracer)),
 		micro.WrapClient(ot.NewClientWrapper(tracer)),
