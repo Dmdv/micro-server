@@ -1,5 +1,12 @@
 # GO-MICRO: Missing documentation
 
+##### Prerequisites
+
+- Install skaffold
+https://skaffold.dev/docs/quickstart
+- Install helm
+- Install minikube
+
 # micro-client
 
 ## How to build
