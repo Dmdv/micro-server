@@ -2,8 +2,6 @@
 
 # micro-client
 
-https://github.com/Dmdv/micro-server
-
 ## How to build
 
 ```shell
