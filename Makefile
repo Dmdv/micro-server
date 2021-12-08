@@ -1,5 +1,9 @@
 GOPATH:=$(shell go env GOPATH)
 
+.PHONY: prerequisites
+prerequisites:
+	@go install go-micro.dev/v4/cmd/micro@master
+
 .PHONY: init
 init:
 	@go get -u google.golang.org/protobuf/proto

@@ -39,6 +39,7 @@ func main() {
 	// micro.Version(version) - set version
 	// micro.Name(service) - set service name
 	srv := micro.NewService(
+		micro.Name(service),
 		micro.WrapCall(ot.NewCallWrapper(tracer)),
 		micro.WrapClient(ot.NewClientWrapper(tracer)),
 		micro.WrapHandler(ot.NewHandlerWrapper(tracer)),

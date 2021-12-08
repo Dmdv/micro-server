@@ -2,10 +2,10 @@
 
 ##### Prerequisites
 
-- Install skaffold
-https://skaffold.dev/docs/quickstart
 - Install helm
 - Install minikube
+- Install skaffold (https://skaffold.dev/docs/quickstart)
+- Install micro
 
 # micro-client
 
@@ -34,6 +34,9 @@ skaffold run
 ```
 
 ## Known issues
+
+If you run with `micro run` then the service name will be default: `go.micro.client`
+To assign the service name, use `micro.Name` option
 
 Any explicit server declarations must go before any other options
 
