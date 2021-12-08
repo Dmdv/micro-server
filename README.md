@@ -1,13 +1,18 @@
 # GO-MICRO: Missing documentation
 
 ##### Prerequisites
-
+```shell
+make prerequisites
+```
 - Install helm
 - Install minikube
-- Install skaffold (https://skaffold.dev/docs/quickstart)
+- Install skaffold (`https://skaffold.dev/docs/quickstart`)
 - Install micro
 
-# micro-client
+# Micro installation
+```shell
+go install go-micro.dev/v4/cmd/micro@master
+```
 
 ## How to build
 

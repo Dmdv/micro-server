@@ -2,6 +2,11 @@ GOPATH:=$(shell go env GOPATH)
 
 .PHONY: prerequisites
 prerequisites:
+	@brew install helm
+	@brew install skaffold
+#	@curl -fsSL -o get_helm.sh https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3
+#	@chmod 700 get_helm.sh
+#	@./get_helm.sh
 	@go install go-micro.dev/v4/cmd/micro@master
 
 .PHONY: init
