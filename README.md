@@ -11,7 +11,7 @@ make prerequisites
 
 # Micro installation
 ```shell
-go install go-micro.dev/v4/cmd/micro@master
+go install go-micro.dev/v4/cmd/micro@a40f6e8fae19018ead6778a2887c0daf970a9882
 ```
 
 ## How to build
